@@ -1,3 +1,3 @@
-#####To run tests
+##### Running tests:
 
     dotnet test
