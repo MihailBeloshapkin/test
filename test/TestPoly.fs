@@ -12,7 +12,7 @@ let ``empty string test`` () =
     Polymdrom.checkThatPseudoPolyndr "" |> should be False
 
 [<Test>]
-let ``sinhle char test`` () =
+let ``single char test`` () =
     Polymdrom.checkThatPseudoPolyndr "a" |> should be False
 
 [<Test>]
