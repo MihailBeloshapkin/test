@@ -4,8 +4,6 @@ open NUnit.Framework
 open FsUnit
 open Polymdrom
 open System
-open System.Collections
-open System.Collections.Generic
 
 [<Test>]
 let ``empty string test`` () =
