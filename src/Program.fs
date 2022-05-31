@@ -3,14 +3,16 @@ open System
 
 // Checks that str is polymdrom.
 let isPolyndrom inputString =
-    let originalString = inputString |> Seq.toList
-    let reversedString = originalString |> List.rev
-    List.zip originalString reversedString |> List.forall (fun (x, y) -> x = y)
+    let charList = inputString |> Seq.toList
+    let getHalfString s = s |> List.indexed |> List.filter (fun (index, _) -> index < (List.length s) / 2) |> List.map snd
+    let firstHalf = charList |> getHalfString
+    let secondHalf = charList |> List.rev |> getHalfString
+    List.zip firstHalf secondHalf |> List.forall (fun (x, y) -> x = y)
 
 // Checks that str is pseudo polyndrom.
 let checkThatPseudoPolyndr inputString =
     if isPolyndrom inputString then 
-        false 
+        false
     else
         let originalString = inputString |> Seq.toList
         let reversedString = originalString |> List.rev
@@ -18,7 +20,7 @@ let checkThatPseudoPolyndr inputString =
         let index = List.findIndex (fun (x, y) -> x <> y) zipped
         let newOriginal, newReversed = 
             zipped 
-            |> List.indexed 
+            |> List.indexed
             |> List.filter (fun x -> fst x <> index) 
             |> List.map snd
             |> List.unzip

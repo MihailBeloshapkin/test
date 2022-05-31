@@ -8,12 +8,20 @@ open System.Collections
 open System.Collections.Generic
 
 [<Test>]
+let ``empty string test`` () =
+    Polymdrom.checkThatPseudoPolyndr "" |> should be False
+
+[<Test>]
+let ``sinhle char test`` () =
+    Polymdrom.checkThatPseudoPolyndr "a" |> should be False
+
+[<Test>]
 let ``very simple test`` () =
     Polymdrom.checkThatPseudoPolyndr "abca" |> should be True
 
 [<Test>]
 let ``another simple test`` () =
-    Polymdrom.checkThatPseudoPolyndr "aboba" |> should be False
+    Polymdrom.checkThatPseudoPolyndr "abcba" |> should be False
 
 [<Test>]
 let ``should be false`` () =
